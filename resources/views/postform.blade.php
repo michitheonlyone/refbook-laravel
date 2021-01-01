@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group">
                     <label for="subtitle">Subtitle</label>
-                    <input type="text" class="form-control @if(old('subtitle')) is-valid @endif" value="{{ old('subtitle') }}"" id="subtitle" name="subtitle" placeholder="Subtitle">
+                    <input type="text" class="form-control @if(old('subtitle')) is-valid @endif" value="{{ old('subtitle') }}" id="subtitle" name="subtitle" placeholder="Subtitle">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Content</label>
