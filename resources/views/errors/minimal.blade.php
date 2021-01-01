@@ -52,8 +52,8 @@
       <header class="my-4 text-center">
         <img src="https://doc.indinizer.com/wp-content/uploads/2019/03/indinizer-logo-l.png" title="indinizer-logo-l" alt="indinizer-logo-l" class="w-75 py-5">
         {{-- error msg --}}
-        <h1>Indinizer Online Documentation</h1>
-        <p class="lead">Onlinehilfe, Support und Dokumentation (Handbuch) für Indininizer CRM.</p>
+        <h1 class="display-1 font-weight-bold text-muted">@yield('code')</h1>
+        <p class="lead">@yield('message')!</p>
         <div class="input-group input-group-lg my-4">
             <input type="text" class="form-control" placeholder="Dokumentation durchsuchen..." aria-label="Dokumentation durchsuchen..." aria-describedby="button-addon2">
             <div class="input-group-append">
@@ -62,74 +62,18 @@
         </div>
       </header>
 
-      <!-- Page Features -->
-      <div class="row text-center">
-
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="card h-100">
-            <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-            <div class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">Find Out More!</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="card h-100">
-            <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-            <div class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">Find Out More!</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="card h-100">
-            <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-            <div class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">Find Out More!</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="card h-100">
-            <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-            <div class="card-body">
-              <h4 class="card-title">Card title</h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">Find Out More!</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
       <!-- /.row -->
 
     </div>
     <!-- /.container -->
 
-    <!-- Footer -->
+    {{-- <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
       </div>
       <!-- /.container -->
-    </footer>
+    </footer> --}}
 
     <!-- Bootstrap core JavaScript -->
     <script src="{{ asset('js/app.js') }}"></script>
