@@ -1,23 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    <div class="card">
+        <div class="card-header">Categories</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+        <div class="list-group">
+            @foreach ($categories as $category)
 
-
+            <a href="{{ $category->slug }}" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{ $category->name }}</h5>
+                    <small>{{ $category->posts->count() }} Post in this category</small>
                 </div>
-            </div>
+                <p class="mb-1">{{ $category->description }}</p>
+            </a>
+            @endforeach
         </div>
     </div>
-</div>
 @endsection

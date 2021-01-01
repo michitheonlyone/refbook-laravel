@@ -75,8 +75,40 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
+        <main class="py-4 container">
+            <div class="row">
+                @if (!Route::is('home'))
+                <div class="col-lg-3">
+                    {{-- build component for sidebar elements --}}
+                    <div class="card">
+                        <div class="card-header">Categories</div>
+
+                        <div class="list-group list-small">
+                            @foreach($categories as $category)
+                            <a href="{{ url($category->slug) }}" class="list-group-item d-flex justify-content-between align-items-center list-group-item-action">{{-- if active bg-muted --}}
+                                {{ $category->name }}
+                                <span class="badge badge-primary badge-pill">{{ $category->posts->count() }}</span>
+                            </a>
+                            @endforeach
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.col-lg-3 -->
+
+                <div class="col-lg-9">
+                    @yield('content')
+                </div>
+
+                @else
+                <div class="col-lg-12">
+                    @yield('content')
+                </div>
+                @endif
+                <!-- /.col-lg-9 -->
+
+            </div>
+            <!-- /.row -->
         </main>
     </div>
 </body>
