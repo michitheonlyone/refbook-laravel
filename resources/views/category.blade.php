@@ -2,7 +2,12 @@
 
 @section('content')
     <div class="card mb-4">
-        <div class="card-header">{{ $category->name }}</div>
+        <div class="card-header d-flex d-flex justify-content-between">
+            <div>{{ $category->name }}</div>
+            @auth
+            <a href="{{ route('createpost', 'category') }}" class="btn btn-outline-success btn-sm">Add Post</a>
+            @endauth
+        </div>
         <div class="card-body">{{ $category->description }}</div>
     </div>
 

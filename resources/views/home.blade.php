@@ -1,9 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="card">
-        <div class="card-header">Categories</div>
+    <div class="card mb-4">
+        {{-- <div class="card-header">adas</div> --}}
+        <div class="card-header d-flex justify-content-between">
+            <div>Categories</div>
+            @auth
+            <a href="#" class="btn btn-outline-success btn-sm">Add Category</a>
+            @endauth
+        </div>
+    </div>
 
+    <div class="card">
         <div class="list-group">
             @foreach ($categories as $category)
 
