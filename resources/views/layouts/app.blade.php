@@ -39,6 +39,14 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        @foreach($categories as $category)
+                            <li class="nav-item d-block d-md-none">
+                                <a href="{{ url($category->slug) }}" class="nav-link border-bottom">   {{-- if active bg-muted --}}
+                                    {{ $category->name }}
+                                </a>
+                            </li>
+                        @endforeach
+
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -51,7 +59,7 @@
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
-                        @else
+                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -77,8 +85,8 @@
 
         <main class="py-4 container">
             <div class="row">
-                @if (!Route::is('home'))
-                <div class="col-lg-3">
+                @if (!Route::is('home','login','register'))
+                <div class="col-md-3 d-none d-md-block">
                     {{-- build component for sidebar elements --}}
                     <div class="card">
                         <div class="card-header">Categories</div>
@@ -96,12 +104,12 @@
                 </div>
                 <!-- /.col-lg-3 -->
 
-                <div class="col-lg-9">
+                <div class="col-md-9">
                     @yield('content')
                 </div>
 
                 @else
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     @yield('content')
                 </div>
                 @endif
