@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -40,7 +40,7 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @foreach($categories as $category)
-                            <li class="nav-item d-block d-md-none">
+                            <li class="nav-item d-block d-lg-none">
                                 <a href="{{ url($category->slug) }}" class="nav-link border-bottom">   {{-- if active bg-muted --}}
                                     {{ $category->name }}
                                 </a>
@@ -85,8 +85,8 @@
 
         <main class="py-4 container">
             <div class="row">
-                @if (!Route::is('home','login','register'))
-                <div class="col-md-3 d-none d-md-block">
+                @if (!Route::is('home','login','register','password.request'))
+                <div class="col-md-3 d-none d-lg-block">
                     {{-- build component for sidebar elements --}}
                     <div class="card">
                         <div class="card-header">Categories</div>
@@ -104,12 +104,12 @@
                 </div>
                 <!-- /.col-lg-3 -->
 
-                <div class="col-md-9">
+                <div class="col-lg-9">
                     @yield('content')
                 </div>
 
                 @else
-                <div class="col-md-12">
+                <div class="col-lg-12">
                     @yield('content')
                 </div>
                 @endif
