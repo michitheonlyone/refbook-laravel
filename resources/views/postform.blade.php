@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Content</label>
-                    <textarea class="form-control @error('content') is-invalid @enderror @if(old('content')) is-valid @endif" id="content" name="content" rows="3">{{ old('content') }}</textarea>
+                    <textarea class="form-control summernote @error('content') is-invalid @enderror @if(old('content')) is-valid @endif" id="content" name="content" rows="3">{{ old('content') }}</textarea>
                 </div>
                 {{-- <div class="form-control"> --}}
                     <button type="submit" class="btn btn-success">Save</button>
