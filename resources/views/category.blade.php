@@ -17,7 +17,8 @@
         <a href="{{ url($category->slug."/".$post->slug) }}" class="list-group-item list-group-item-action">
             <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">{{ $post->title }}</h5>
-                <small>Postet {{ $post->updated_at }}</small>
+                <small>Postet {{ $post->created_at->diffForHumans() }}</small>
+                {{-- <small>Updated {{ $post->updated_at->diffForHumans() }}</small> --}}
             </div>
             <p class="mb-1">{{ $post->subtitle }}</p>
         </a>

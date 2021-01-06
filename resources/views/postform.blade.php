@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Content</label>
-                    <textarea class="form-control summernote @error('content') is-invalid @enderror @if(old('content')) is-valid @endif" id="content" name="content" rows="3">{{ old('content') }}</textarea>
+                    <textarea class="form-control summernote @error('content') is-invalid @enderror @if(old('content')) is-valid @endif" id="content" name="content">{{ old('content') }}</textarea>
                 </div>
                 {{-- <div class="form-control"> --}}
                     <button type="submit" class="btn btn-success">Save</button>
@@ -43,4 +43,29 @@
             {!! $post->content !!}
         </div>
     </div> --}}
+@endsection
+
+@section('afterjs')
+<script>
+$(document).ready(function () {
+    $('.summernote').summernote({
+        height: 300,
+        toolbar: [
+            // [groupName, [list of button]]
+
+            ['style', ['style', 'bold', 'italic', 'underline', 'clear']],
+            // ['fontsize', ['fontsize']],
+            // ['color', ['color']],
+            ['para', ['ul', 'ol', 'hr', 'table']],
+            ['link', ['linkDialogShow', 'unlink']],
+            ['view', ['codeview','fullscreen'], 'right'],
+            // ['height', ['height']]
+          ],
+    });
+    $('.note-editor').addClass('bg-white');
+    $('.note-toolbar').addClass('border-bottom');
+    $('.note-view').addClass('float-right');
+});
+
+</script>
 @endsection

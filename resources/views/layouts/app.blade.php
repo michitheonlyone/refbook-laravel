@@ -14,7 +14,9 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    @yield('beforecss')
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('aftercss')
 </head>
 <body>
     <div id="app">
@@ -117,6 +119,8 @@
         </main>
     </div>
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    @yield('beforejs')
+    <script src="{{ asset('js/app.js') }}"></script>
+    @yield('afterjs')
 </body>
 </html>
