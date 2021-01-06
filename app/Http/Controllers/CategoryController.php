@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -30,9 +31,26 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('categoryform')->with(['formtitle' => 'New Category']);
     }
 
+    private function _slugit($string)
+    {
+        $temp = Str::slug($string, '-');
+        // search for existing slug
+        if (Category::where('slug', $temp)->first()) {
+            $count = 1;
+            $slug = $temp."-".$count;
+            while (Category::where('slug', $slug)->first()) {
+                $count++;
+                $slug = $temp."-".$count;
+            }
+            // dd($slug);
+            return $slug;
+        } else {
+            return $temp;
+        }
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -41,7 +59,17 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required'
+        ]);
+
+        Category::create([
+            'name' => $request->name,
+            'slug' => $this->_slugit($request->name),
+            'description' => $request->description
+        ]);
+
+        return redirect('/'); // to the category road
     }
 
     /**

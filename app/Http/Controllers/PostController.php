@@ -65,8 +65,6 @@ class PostController extends Controller
             'content' => 'required'
         ]);
 
-        $this->_slugit($request->title);
-
         Post::create([
             'category_id' => 1,
             'title' => $request->title,

@@ -6,6 +6,9 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 
+// Make use of direct Controller@action with namespace in provider
+// https://laracasts.com/discuss/channels/laravel/laravel-8-error-target-class-homecontroller-does-not-exist
+
 /**
  * Improve it with Resource Routes!
  */
@@ -25,11 +28,17 @@ Auth::routes([
 
 // Admin Dashboard
 // Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+Route::middleware('auth')->group(function() {
+    Route::get('/category/create', [CategoryController::class, 'create'])->name('createcategory');
+    Route::post('/category/create', [CategoryController::class, 'store']);
+
+    Route::get('/{category}/post/create', [PostController::class, 'create'])->name('createpost');
+    Route::post('/{category}/post/create', [PostController::class, 'store']);
+});
 
 // Post CRUD Routes
-Route::get('/{category}/post/create', [PostController::class, 'create'])->name('createpost');
-Route::post('/{category}/post/create', [PostController::class, 'store']);
-// Route::post('/{category}/{postslug}/store', []);
+// Route::get('/{category}/post/create', [PostController::class, 'create'])->name('createpost')->middleware('auth');
+// Route::post('/{category}/post/create', [PostController::class, 'store']);
 
 /*
 |--------------------------------------------------------------------------

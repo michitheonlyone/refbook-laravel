@@ -6,7 +6,7 @@
         <div class="card-header d-flex justify-content-between">
             <div>Categories</div>
             @auth
-            <a href="#" class="btn btn-outline-success btn-sm">Add Category</a>
+            <a href="{{ route('createcategory') }}" class="btn btn-outline-success btn-sm">Add Category</a>
             @endauth
         </div>
     </div>
