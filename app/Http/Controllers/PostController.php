@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -29,9 +30,11 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($category = 'uncategorized')
+    public function create($cat = 'uncategorized')
     {
-        return view('postform')->with(['formtitle' => 'New Post']);
+        $categories = Category::all();
+        $preselect = $categories->where('slug',$cat)->first();
+        return view('postform')->with(['formtitle' => 'New Post'])->with(['categories' => $categories, 'preselect' => $preselect]);
     }
 
 
@@ -66,14 +69,14 @@ class PostController extends Controller
         ]);
 
         Post::create([
-            'category_id' => 1,
+            'category_id' => $request->select_category, // $request->category_id
             'title' => $request->title,
             'slug' => $this->_slugit($request->title),
             'subtitle' => $request->subtitle,
             'content' => $request->content,
         ]);
 
-        return redirect('home'); // to the category road
+        return redirect("/".$category); // to the category road
     }
 
     /**

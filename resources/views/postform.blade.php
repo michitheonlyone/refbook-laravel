@@ -4,17 +4,21 @@
     <div class="card mb-4">
         <div class="card-header">{{ $formtitle }}</div>
         <div class="card-body">
-            <form action="{{ route('createpost', 'category') }}" method="POST">
+            <form action="{{ route('createpost', $preselect->slug) }}" method="POST">
                 @csrf
                 <div class="form-group">
-                    <label for="category">Select Category</label>
-                    {{-- <select class="form-control" id="category">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select> --}}
+                    <label for="select_category">Select Category</label>
+                    <select class="form-control" id="select_category" name="select_category">
+                    @foreach ($categories as $category )
+                        <option value="{{ $category->id }}"
+                            @if (old('select_category') == $category->id)
+                                selected="selected"
+                            @elseif ($preselect->id == $category->id &! old('select_category') == $category->id)
+                                selected="selected"
+                            @endif
+                            >{{ $category->name }}</option>
+                    @endforeach
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="title">Title</label>
