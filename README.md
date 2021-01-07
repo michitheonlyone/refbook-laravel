@@ -11,21 +11,21 @@ This Laravel 8 App loads dynamic content Posts by Category content from the Data
 
 ## Installation (Development mode)
 1. Clone the repository
-    `git clone https://github.com/michitheonlyone/refbook-laravel.git`
+    ```git clone https://github.com/michitheonlyone/refbook-laravel.git```
 
 2. Install composer and npm
-    `composer install`
-    `npm install`
+    ```composer install```
+    ```npm install```
 
 3. Setup environment.
-    `cp .env.example .env`
+    ```cp .env.example .env```
 
 4. Setup database and change necessary variables!
-    `php artisan key:generate`
-    `php artisan migrate`
+    ```php artisan key:generate```
+    ```php artisan migrate```
 
 5. Serve it!
-    `php artisan serve`
+    ```php artisan serve```
 
 ## Screenshots
 ![Create Post](./screenshots/createpost.png)
