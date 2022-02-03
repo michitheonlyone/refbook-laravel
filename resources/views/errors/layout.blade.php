@@ -43,13 +43,16 @@
                 font-size: 36px;
                 padding: 20px;
             }
+            .code {
+                color: #85151d;
+            }
         </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title">
-                    @yield('message')
+                    <span class="code">@yield('code')</span> | @yield('message')
                 </div>
             </div>
         </div>

@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 /*
 |--------------------------------------------------------------------------
-| ONLY LOGIN PAGES ROUTES
+| ONLY LOGIN PAGES ROUTES - DISABLE IF YOU DO NOT LIKE USERS TO REGISTER
 |--------------------------------------------------------------------------
 */
 Auth::routes([
@@ -27,30 +27,22 @@ Auth::routes([
 ]);
 
 // Admin Dashboard
-// Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 Route::middleware('auth')->group(function() {
     Route::get('/category/create', [CategoryController::class, 'create'])->name('createcategory');
     Route::post('/category/create', [CategoryController::class, 'store']);
 
     Route::get('/{category}/post/create', [PostController::class, 'create'])->name('createpost');
     Route::post('/{category}/post/create', [PostController::class, 'store']);
+    Route::get('/{category}/{postslug}/edit', [PostController::class, 'edit'])->name('editpost');
+    Route::post('/{category}/{postslug}/edit', [PostController::class, 'update']);
+    Route::get('/{category}/{postslug}/delete', [PostController::class, 'destroy'])->name('deletepost');
 });
-
-// Post CRUD Routes
-// Route::get('/{category}/post/create', [PostController::class, 'create'])->name('createpost')->middleware('auth');
-// Route::post('/{category}/post/create', [PostController::class, 'store']);
 
 /*
 |--------------------------------------------------------------------------
 | PUBLIC ROUTES
 |--------------------------------------------------------------------------
 */
-
-// Route::get('/page', 'PostController@index'); ?? does not work!
 Route::get('/{category}', [CategoryController::class, 'index']);
 Route::get('/{category}/{postslug}', [PostController::class, 'index']);
-// Route::get('/{post}', function ($post) {
-//     return 'User '.$post;
-// });
-// Route::get('/page', [PostController::class, 'show']);
 

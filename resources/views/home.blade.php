@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="card mb-4">
-        {{-- <div class="card-header">adas</div> --}}
         <div class="card-header d-flex justify-content-between">
             <div>Categories</div>
             @auth
