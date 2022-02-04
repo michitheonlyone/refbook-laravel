@@ -2,7 +2,7 @@
 ** Laravel tutorial project **
 https://www.youtube.com/watch?v=MFh0Fd7BsjE
 
-Create Wiki Documentation, Blog posts, FAQ Websites and much more...
+Create Wiki Documentation, Blog posts, FAQ Websites, Multi-User Notebook App and much more...
 
 ## Basic concept (how it works)
 This Laravel 8 App loads dynamic content Posts by Category content from the Database (or any datasource you like).
