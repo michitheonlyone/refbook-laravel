@@ -1,37 +1,38 @@
-## Welcome to GitHub Pages
+# Reference Book App
+** Laravel tutorial project **
+https://www.youtube.com/watch?v=MFh0Fd7BsjE
 
-You can use the [editor on GitHub](https://github.com/michitheonlyone/refbook-laravel/edit/master/docs/index.md) to maintain and preview the content for your website in Markdown files.
+Create Wiki Documentation, Blog posts, FAQ Websites, Multi-User Notebook App and much more...
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Basic concept (how it works)
+This Laravel 8 App loads dynamic content Posts by Category content from the Database (or any datasource you like).
 
-### Markdown
+- The app has a Model for Category and Posts. Each Post has a Category, Each Category has meny posts.
+- The sidebar navigation shows each category and the number of posts in the view created by the AppServiceProvide::class register method.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Installation (Development)
+For deployment head over to the [Laravel Doc's](https://laravel.com/docs/8.x/deployment)
 
-```markdown
-Syntax highlighted code block
+```bash
+# Clone the repository
+git clone https://github.com/michitheonlyone/refbook-laravel.git
 
-# Header 1
-## Header 2
-### Header 3
+# Install composer and npm dependencies
+composer install
+npm install
 
-- Bulleted
-- List
+# Setup environment.
+cp .env.example .env
 
-1. Numbered
-2. List
+# Setup database and change necessary variables!
+php artisan key:generate
+php artisan migrate
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+# Serve it!
+php artisan serve
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/michitheonlyone/refbook-laravel/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## Screenshots
+![Create Post](./screenshots/createpost.png)
+![Show Post](./screenshots/showpost.png)
+![Sho Posts](./screenshots/showpostlist.png)
