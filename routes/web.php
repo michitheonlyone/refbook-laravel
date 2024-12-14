@@ -23,7 +23,7 @@ Route::get('/', function () {
 |--------------------------------------------------------------------------
 */
 Auth::routes([
-    // 'register' => false
+    'register' => false // TODO add logic to get it from .env or some kind of tenant setting
 ]);
 
 // Admin Dashboard
