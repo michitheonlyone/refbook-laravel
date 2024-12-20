@@ -52,9 +52,7 @@
                         class="form-control summernote @error('content') is-invalid @enderror @if(old('content')) is-valid @endif"
                         id="content"
                         name="content"
-                    >
-                        {{ old('content', $content ?? '') }}
-                    </textarea>
+                    >{{ old('content', $content ?? '') }}</textarea>
                 </div>
                 {{-- <div class="form-control"> --}}
                     <button type="submit" class="btn btn-success">Save</button>
